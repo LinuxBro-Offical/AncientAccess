@@ -1,0 +1,198 @@
+
+body {
+    background-color: lightblue;
+}
+.ticket1 {
+    position: relative;
+    width: 700px;
+    height: 150px;
+    margin: 100px;
+}
+.ticket1__shape {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 0;
+    filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.15));
+}
+.ticket1__shape .top, .ticket1__shape .bottom {
+    flex: 1;
+    width: 100%;
+    background-color: #fff;
+}
+.ticket1__shape .top {
+    border-radius: 5px 5px 0 0;
+}
+.ticket1__shape .bottom {
+    border-radius: 0 0 5px 5px;
+}
+.ticket1__shape .rip {
+    position: relative;
+    height: 40px;
+    flex-shrink: 0;
+    margin: 0 20px;
+    background-color: #fff;
+}
+.ticket1__shape .rip::before, .ticket1__shape .rip::after {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 10px solid transparent;
+    border-top-color: #fff;
+    border-right-color: #fff;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 50%;
+    top: 50%;
+}
+.ticket1__shape .rip::before {
+    left: -20px;
+}
+.ticket1__shape .rip::after {
+    right: -80px;
+    transform: translate(-50%, -50%) rotate(225deg);
+}
+.ticket1__content {
+    position: relative;
+    z-index: 1;
+    padding: 1rem;
+}
+.ticket2 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    margin: 100px;
+    filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.15));
+}
+.ticket2__header {
+    position: relative;
+    background-color: #fff;
+    padding: 1rem;
+    padding-bottom: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 5px 5px 0 0;
+}
+.ticket2__header::after {
+    position: absolute;
+    content: "";
+    height: 1px;
+    border-top: 2px dashed #eee;
+    left: 20px;
+    right: 20px;
+    bottom: -20px;
+    z-index: 2;
+}
+.ticket2__rip {
+    position: relative;
+    height: 40px;
+    flex-shrink: 0;
+    margin: 0 20px;
+    background-color: #fff;
+}
+.ticket2__rip::before, .ticket2__rip::after {
+    position: absolute;
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 10px solid transparent;
+    border-top-color: #fff;
+    border-right-color: #fff;
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 50%;
+    top: 50%;
+}
+.ticket2__rip::before {
+    left: -20px;
+}
+.ticket2__rip::after {
+    right: -80px;
+    transform: translate(-50%, -50%) rotate(225deg);
+}
+.ticket2__body {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 0 0 5px 5px;
+    padding-top: 2rem;
+}
+.ticket3 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 700px;
+    margin: 100px;
+    filter: drop-shadow(2px 5px 5px rgba(0, 0, 0, 0.15));
+}
+.ticket3__details {
+    flex: 3;
+    background-color: #fff;
+    min-height: 150px;
+    padding: 1rem;
+    border-radius: 5px 0 0 5px;
+}
+.ticket3__details .ticket3__title {
+    margin-top: 0;
+}
+.ticket3__details ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.ticket3__details ul li {
+    margin: 0.4rem 0;
+}
+.ticket3__rip {
+    position: relative;
+    background-color: #fff;
+    background-image: linear-gradient(90deg, #fff 49%, #e91e63 50%);
+    margin: 10px 0;
+    width: 20px;
+}
+.ticket3__rip::before, .ticket3__rip::after {
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 5px solid transparent;
+    border-top-color: #fff;
+    left: 50%;
+    transform: translateX(-50%) rotate(135deg);
+    border-radius: 50%;
+}
+.ticket3__rip::before {
+    top: - 25px;
+    border-top-color: #e91e63;
+    border-right-color: #fff;
+}
+.ticket3__rip::after {
+    border-right-color: #e91e63;
+    border-top-color: #fff;
+    bottom: - 25px;
+    transform: translateX(-50%) rotate(-45deg);
+}
+.ticket3__price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    background-color: #e91e63;
+    min-height: 150px;
+    padding: 1rem;
+    border-radius: 0 5px 5px 0;
+    color: #fff;
+}
+.ticket3__price .heading {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+    color: #ffcdde;
+    margin-left: -5px;
+}
+.ticket3__price .price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-left: -5px;
+}

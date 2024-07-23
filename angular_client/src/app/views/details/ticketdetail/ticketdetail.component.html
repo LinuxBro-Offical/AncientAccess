@@ -1,0 +1,22 @@
+<app-index-navbar></app-index-navbar>
+
+<div class="container mt-12 bg-lightBlue-400" style="margin-top: 4rem;padding: 1rem 8rem;">
+    <div class="ticket3" *ngFor="let item of tickets; let i = index">
+        <div class="ticket3__details">
+            <h3 class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold">General Details</h3>
+            <ul>
+                <li class="text-sm leading-relaxed m-4 text-blueGray-500">Name: {{userData.fullName}}</li>
+                <li class="text-sm leading-relaxed m-4 text-blueGray-500"></li>
+                <li *ngIf="item.isEvent" class="text-sm text-blueGray-500 leading-normal mt-0 mb-2">Event : {{item.selectedEvent.name}}</li>
+                <li *ngIf="!item.isEvent" class="text-sm text-blueGray-500 leading-normal mt-0 mb-2">Visiting Ticket : {{item.culturalAttraction.title}}</li>
+                <li class="text-sm leading-relaxed m-4 text-blueGray-500 font-bold">{{changeDate(item.date)}}</li>
+            </ul>
+        </div>
+        <div class="ticket3__rip"></div>
+        <div class="ticket3__price">
+            <span class="heading font-bold">Price</span>
+            <span class="price">{{item.finalAmount}}€</span>
+        </div>
+    </div>
+</div>
+

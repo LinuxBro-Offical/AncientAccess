@@ -1,0 +1,215 @@
+<app-auth-navbar></app-auth-navbar>
+<main>
+  <div
+    class="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75"
+  >
+    <div
+      class="absolute top-0 w-full h-full bg-center bg-cover"
+      style="
+        background-image: url('https://images.thrillophilia.com/image/upload/s--C2p63sbq--/c_fill,g_auto,h_600,q_auto,w_975/f_auto,fl_strip_profile/v1/images/photos/000/179/114/original/1573804930_Portugal.png.jpg');
+      "
+    >
+      <span
+        id="blackOverlay"
+        class="w-full h-full absolute opacity-75 bg-black"
+      ></span>
+    </div>
+    <div class="container relative mx-auto">
+      <div class="items-center flex flex-wrap">
+        <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+          <div class="pr-12">
+            <h5 class="text-white font-semibold text-3xl">
+              Descubra a beleza e cultura de Portugal em uma experiência turística única
+            </h5>
+            <p class="mt-4 text-lg text-blueGray-200">
+              Portuguese Tourism is a thriving industry that showcases the rich cultural heritage,
+              stunning landscapes, and warm hospitality of Portugal. Renowned for its 
+              historical cities, picturesque coastal towns, and breathtaking natural beauty,
+              Portugal offers a diverse range of attractions for travelers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-70-px"
+      style="transform: translateZ(0)"
+    >
+      <svg
+        class="absolute bottom-0 overflow-hidden"
+        xmlns="http://www.w3.org/2000/svg"
+        preserveAspectRatio="none"
+        version="1.1"
+        viewBox="0 0 2560 100"
+        x="0"
+        y="0"
+      >
+        <polygon
+          class="text-blueGray-200 fill-current"
+          points="2560 0 2560 100 0 100"
+        ></polygon>
+      </svg>
+    </div>
+  </div>
+
+  <section class="pb-20 bg-blueGray-200 -mt-24">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap">
+        <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+          <div
+            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+          >
+            <div class="px-4 py-5 flex-auto">
+              <div
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400"
+              >
+              <i class="fas fa-solid fa-place-of-worship"></i>
+              </div>
+              <h6 class="text-xl font-semibold">Heritages</h6>
+              <p class="mt-2 mb-4 text-blueGray-500">
+                Portugal is home to a rich tapestry of cultural heritage that spans centuries. 
+                From the ancient Roman ruins of Conimbriga to the majestic Moorish castles of Sintra,
+                 visitors can explore the country's diverse historical sites and architectural 
+                 wonders.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full md:w-4/12 px-4 text-center">
+          <div
+            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+          >
+            <div class="px-4 py-5 flex-auto">
+              <div
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-lightBlue-400"
+              >
+              <i class="fas fa-solid fa-calendar"></i>
+              </div>
+              <h6 class="text-xl font-semibold">Events</h6>
+              <p class="mt-2 mb-4 text-blueGray-500">
+                Portuguese tourism events offer a vibrant and dynamic experience 
+                for visitors. From colorful festivals celebrating local traditions
+                 to international music and cultural gatherings, Portugal hosts a diverse
+                  range of events throughout the year. 
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6 w-full md:w-4/12 px-4 text-center">
+          <div
+            class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg"
+          >
+            <div class="px-4 py-5 flex-auto">
+              <div
+                class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-emerald-400"
+              >
+              <i class="fas fa-solid fa-hotel"></i>
+              </div>
+              <h6 class="text-xl font-semibold">Resorts</h6>
+              <p class="mt-2 mb-4 text-blueGray-500">
+                Portuguese tourism resorts offer an idyllic escape for travelers seeking a perfect blend of relaxation and adventure. With a coastline stretching along the Atlantic Ocean, these resorts boast pristine beaches,
+               crystal-clear waters, and a wide range of water sports and activities.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center mt-32" style="display: flex;flex-direction: column;">
+        <div class="text-3xl font-semibold mb-5" style="margin-bottom: 3rem;">
+          Explore our Heritages
+        </div>
+        <div style="display: flex;flex-direction: row; flex-wrap: wrap;">
+          <div class="w-full md:w-4/12 px-4 mr-auto ml-auto" *ngFor="let item of heritageData; let i = index">
+            <div
+              class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-red-600"
+            > 
+              <img
+                alt="..."
+                src="http://localhost:3000/{{item.photos[0]}}"
+                class="w-full align-middle rounded-t-lg"
+              />
+              <blockquote class="relative p-8 mb-4">
+                <svg
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 583 95"
+                  class="absolute left-0 w-full block h-95-px -top-94-px"
+                >
+                  <polygon
+                    points="-30,95 583,95 583,65"
+                    class="text-red-600 fill-current"
+                  ></polygon>
+                </svg>
+                <h4 class="text-xl font-bold text-white">{{item.title}}</h4>
+                
+                <p class="text-sm font-light mt-2 text-white">
+                  {{item.description}}
+                </p>
+                <div class="mt-3">
+                  <button
+                    class="bg-white text-blueGray-700 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0  mb-3 ease-linear transition-all duration-150"
+                    type="button"
+                    routerLink="/heritage/{{item._id}}"
+                  >
+                   <span style="color: rgb(204, 158, 7);">EUR&nbsp;{{item.ticketPrice}},</span>  Visit
+                  </button>
+                </div>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </section>
+
+ 
+
+  <section class="pt-20 pb-48">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap justify-center text-center mb-24">
+        <div class="w-full lg:w-6/12 px-4">
+          <h2 class="text-3xl font-semibold">Immerse Yourself in the Vibrant Tapestry of Portuguese Cultural Events</h2>
+          <p class="text-lg leading-relaxed m-4 text-blueGray-500">
+            Portuguese cultural events showcase the vibrant traditions and artistic expressions of
+            the country. From colorful festivals to captivating performances, Portugal celebrates
+            its rich cultural heritage throughout the year. 
+          </p>
+        </div>
+      </div>
+      <div class="flex flex-wrap">
+      
+        <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4 mt-5" *ngFor="let item of eventData; let i = index">
+          <div class="px-6 mt-5" style="display: block;text-align: center;">
+            <i class="fas fa-solid fa-calendar shadow-lg rounded-full mx-auto max-w-120-px" style="font-size: 50px;">
+
+            </i>
+            <div class="pt-6 text-center">
+              <h5 class="text-xl font-bold">{{item.name}}</h5>
+              <p class="mt-1 text-sm text-blueGray-400 uppercase font-semibold">
+                {{getHeritage(item.place).title}}
+              </p>
+              <p class="text-md font-light mt-2 text-blueGray-400">
+                {{changeDate(item.date)}}
+              </p>
+              <div class="mt-6">
+                <button
+                    class="bg-red-600  rounded-full text-blueGray-100 active:bg-blueGray-50 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none lg:mr-1 lg:mb-0  mb-3 ease-linear transition-all duration-150"
+                    type="button"
+                    routerLink="/event/{{item._id}}"
+                  >
+                   <span style="color: rgb(33, 27, 5);">EUR&nbsp;{{item.ticketPrice}},</span>  Visit
+                  </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<app-footer></app-footer>

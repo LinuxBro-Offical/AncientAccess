@@ -1,0 +1,214 @@
+<div class="flex flex-wrap mt-4">
+  <div class="w-full mb-12 px-4">
+    <div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded"
+  [ngClass]="color === 'light' ? 'bg-white' : 'bg-red-900 text-white'"
+>
+  <div class="rounded-t mb-0 px-4 py-3 border-0">
+    <div class="flex flex-wrap items-center">
+      <div class="relative between w-full px-4 max-w-full flex-grow flex-1">
+        <h3
+          class="font-semibold text-lg"
+          [ngClass]="color === 'light' ? 'text-blueGray-700' : 'text-white'"
+        >
+          Heritage Management
+        </h3>
+        <button class="bg-red-500 text-white active:bg-red-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
+          Create
+        </button>
+        <div *ngIf="showModal" style="top:2rem;left: 50%;" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+          <div class="relative w-auto my-6 mx-auto max-w-sm">
+            <!--content-->
+            <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <!--header-->
+              <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                <h3 class="text-xl font-semibold" style="color: black;">
+                  Add Heritage
+                </h3>
+                <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleModal()">
+                  <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                    ×
+                  </span>
+                </button>
+              </div>
+              <form method="post" #createForm="ngForm" (ngSubmit)="onCreate(createForm.value)">
+              <!--body-->
+              <div class="relative p-6 flex-col" style="padding: 1rem 2rem;">
+                <label for="name" class="text-black">Name :</label>
+                <div class="mb-3 pt-1">
+                  <input type="text" #title="ngModel" name="title" ngModel placeholder="Small Input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                </div>
+                <label for="name" class="text-black">Discription :</label>
+                <div class="mb-3 pt-1">
+                  <input type="text" #description="ngModel" name="description" ngModel placeholder="Small Input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                </div>
+                <label for="name" class="text-black">Ticket Price :</label>
+                <div class="mb-3 pt-1">
+                  <input type="text" #ticketPrice="ngModel" name="ticketPrice" ngModel placeholder="Small Input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                </div>
+                <label for="name" class="text-black">Photos :</label>
+                <div class="mb-3 pt-1">
+                  <input type="file" multiple (change)="onFileSelected($event.target.files)" placeholder="Small Input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                </div>
+                <label for="name" class="text-black">Videos :</label>
+                <div class="mb-3 pt-1">
+                  <input type="file" (change)="onVideoSelected($event.target.files)" placeholder="Small Input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                </div>
+              </div>
+              <!--footer-->
+              <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b" style="padding: 1rem;">
+                <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleModal()">
+                  Close
+                </button>
+                <button class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit">
+                  Save Changes
+                </button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="showModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        <!-- edit modal  -->
+        <div *ngIf="showEditModal" style="top:2rem;left: 50%;" class="overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none justify-center items-center flex">
+          <div class="relative w-auto my-6 mx-auto max-w-sm">
+            <!--content-->
+            <div class="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <!--header-->
+              <div class="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                <h3 class="text-xl font-semibold" style="color: black;">
+                  Edit Heritage
+                </h3>
+                <button class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none" (click)="toggleEditModal()">
+                  <span class="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
+                    ×
+                  </span>
+                </button>
+              </div>
+              <form method="post" #editForm="ngForm" (ngSubmit)="onEdit(slectedHeritage, editForm.value)">
+              <!--body-->
+              <div class="relative p-6 flex-col" style="padding: 1rem 2rem;">
+                <label for="name" class="text-black">Name :</label>
+                <div class="mb-3 pt-1">
+                  <input type="text" #title="ngModel" name="title" ngModel placeholder="Small Input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                </div>
+                <label for="name" class="text-black">Discription :</label>
+                <div class="mb-3 pt-1">
+                  <input type="text" #description="ngModel" name="description" ngModel placeholder="Small Input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                </div>
+                <label for="name" class="text-black">Ticket Price :</label>
+                <div class="mb-3 pt-1">
+                  <input type="text" #ticketPrice="ngModel" name="ticketPrice" ngModel placeholder="Small Input" class="px-2 py-1 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                </div>
+              </div>
+              <!--footer-->
+              <div class="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b" style="padding: 1rem;">
+                <button class="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="button" (click)="toggleEditModal()">
+                  Close
+                </button>
+                <button class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" type="submit">
+                  Save Changes
+                </button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="showEditModal" class="opacity-25 fixed inset-0 z-40 bg-black"></div>
+        <!-- edit modal end  -->
+      </div>
+    </div>
+  </div>
+  <div class="block w-full overflow-x-auto">
+    <!-- Projects table -->
+    <table class="items-center w-full bg-transparent border-collapse">
+      <thead>
+        <tr>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          >
+            #
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          >
+            Name
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          >
+            Discription
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          >
+            Ticket Price
+          </th>
+          <th
+            class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left"
+            [ngClass]="
+              color === 'light'
+                ? 'bg-blueGray-50 text-blueGray-500 border-blueGray-100'
+                : 'bg-red-800 text-red-300 border-red-700'
+            "
+          ></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of heritageData; let i = index">
+          <td
+            class="border-t-0 px-6  border-l-0 border-r-0 text-xs p-4"
+          >
+            {{i+1}}
+          </td>
+          <th
+            class="border-t-0 px-6  text-xs whitespace-nowrap p-4 text-left"
+          >
+              {{item.title}}
+          </th>
+          <td
+            style="max-width: 200px;" 
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs p-4"
+          >
+            {{item.description}}
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4"
+          >
+            <i class="fas fa-solid fa-euro-sign"></i>
+            {{item.ticketPrice}}
+          </td>
+          <td
+            class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right"
+          >
+          <button style="margin-right: 1rem;" (click)="toggleEditModal(item)"><i class="fas fa-solid fa-pen-square"></i></button>
+          <button (click)="deleteHeritage(item._id)"><i class="fas fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  </div>
+</div>
